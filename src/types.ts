@@ -23,3 +23,11 @@ export interface Client {
   nom: string
   email: string
 }
+
+export interface ApiError {
+  response?: {
+    data?: {
+      message?: string
+    }
+  }
+}
