@@ -26,24 +26,15 @@ onMounted(() => {
 </script>
 
 <template>
-  <div>
-    <h2>Clients</h2>
+  <div class="container mx-auto p-4">
+    <h2 class="text-2xl font-bold mb-4">Clients</h2>
     <ClientForm @client-added="handleClientAdded" />
-    <div v-if="clients.length > 0">
-      <div v-for="client in clients" :key="client.id" class="client-item">
-        <p>
-          <strong>{{ client.nom }}</strong>
-        </p>
+    <div v-if="clients.length > 0" class="mt-4">
+      <div v-for="client in clients" :key="client.id" class="border-b border-gray-200 py-2">
+        <p class="font-bold">{{ client.nom }}</p>
         <p>{{ client.email }}</p>
       </div>
     </div>
-    <p v-else>No clients found.</p>
+    <p v-else class="mt-4">No clients found.</p>
   </div>
 </template>
-
-<style scoped>
-.client-item {
-  border-bottom: 1px solid #ddd;
-  padding: 8px 0;
-}
-</style>

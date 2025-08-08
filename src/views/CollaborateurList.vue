@@ -25,22 +25,19 @@ onMounted(() => {
 </script>
 
 <template>
-  <div style="padding: 20px; border: 1px solid #ccc; border-radius: 8px">
-    <h2>Collaborateurs</h2>
-
-    <!-- Formulaire pour ajouter un collaborateur -->
+  <div class="p-5 border border-gray-300 rounded-lg">
+    <h2 class="text-2xl font-bold mb-4">Collaborateurs</h2>
     <CollaborateurForm @collaborateur-added="handleCollaborateurAdded" />
 
-    <!-- Liste des collaborateurs -->
-    <ul style="list-style: none; padding: 0">
+    <ul class="list-none p-0 mt-4">
       <li
         v-for="collaborateur in collaborateurs"
         :key="collaborateur.id"
-        style="padding: 10px; border-bottom: 1px solid #ddd"
+        class="py-2 border-b border-gray-300"
       >
-        <p style="margin: 0; font-weight: bold">{{ collaborateur.nom }}</p>
-        <p style="margin: 0; color: gray">{{ collaborateur.email }}</p>
-        <p style="margin: 0; font-style: italic">{{ collaborateur.role }}</p>
+        <p class="m-0 font-bold">{{ collaborateur.nom }}</p>
+        <p class="m-0 text-gray-500">{{ collaborateur.email }}</p>
+        <p class="m-0 italic">{{ collaborateur.role }}</p>
       </li>
     </ul>
   </div>

@@ -57,33 +57,49 @@ onMounted(() => {
 </script>
 
 <template>
-  <form @submit.prevent="handleSubmit" class="transaction-form">
-    <h3>Add Transaction</h3>
+  <form @submit.prevent="handleSubmit" class="mt-4 max-w-md">
+    <h3 class="text-xl font-bold mb-4">Add Transaction</h3>
 
-    <!-- Date -->
-    <div class="form-group">
-      <label for="date">Date</label>
-      <input id="date" name="date" v-model="transaction.date" type="date" required />
+    <div class="mb-4">
+      <label for="date" class="block mb-1 font-bold">Date</label>
+      <input
+        id="date"
+        name="date"
+        v-model="transaction.date"
+        type="date"
+        required
+        class="w-full p-2 border border-gray-300 rounded"
+      />
     </div>
 
-    <!-- Amount -->
-    <div class="form-group">
-      <label for="montant">Amount</label>
-      <input id="montant" name="montant" v-model="transaction.montant" type="number" required />
+    <div class="mb-4">
+      <label for="montant" class="block mb-1 font-bold">Amount</label>
+      <input
+        id="montant"
+        name="montant"
+        v-model="transaction.montant"
+        type="number"
+        required
+        class="w-full p-2 border border-gray-300 rounded"
+      />
     </div>
 
-    <!-- Paid -->
-    <div class="form-group">
-      <label>
-        <input type="checkbox" name="payee" v-model="transaction.payee" />
+    <div class="mb-4">
+      <label class="flex items-center">
+        <input type="checkbox" name="payee" v-model="transaction.payee" class="mr-2" />
         Paid
       </label>
     </div>
 
-    <!-- Client -->
-    <div class="form-group">
-      <label for="clientId">Client</label>
-      <select id="clientId" name="clientId" v-model="transaction.clientId" required>
+    <div class="mb-4">
+      <label for="clientId" class="block mb-1 font-bold">Client</label>
+      <select
+        id="clientId"
+        name="clientId"
+        v-model="transaction.clientId"
+        required
+        class="w-full p-2 border border-gray-300 rounded"
+      >
         <option value="">Select a client</option>
         <option v-for="client in clients" :key="client.id" :value="client.id">
           {{ client.nom }}
@@ -92,13 +108,14 @@ onMounted(() => {
     </div>
 
     <!-- Collaborator -->
-    <div class="form-group">
-      <label for="collaborateurId">Collaborator</label>
+    <div class="mb-4">
+      <label for="collaborateurId" class="block mb-1 font-bold">Collaborator</label>
       <select
         id="collaborateurId"
         name="collaborateurId"
         v-model="transaction.collaborateurId"
         required
+        class="w-full p-2 border border-gray-300 rounded"
       >
         <option value="">Select a collaborator</option>
         <option
@@ -111,42 +128,11 @@ onMounted(() => {
       </select>
     </div>
 
-    <button type="submit">Add Transaction</button>
+    <button
+      type="submit"
+      class="py-2 px-4 bg-blue-500 text-white rounded cursor-pointer hover:bg-blue-700"
+    >
+      Add Transaction
+    </button>
   </form>
 </template>
-
-<style scoped>
-.transaction-form {
-  margin-top: 1rem;
-  max-width: 400px;
-}
-.form-group {
-  margin-bottom: 1rem;
-}
-label {
-  display: block;
-  margin-bottom: 0.3rem;
-  font-weight: bold;
-}
-input,
-select {
-  width: 100%;
-  padding: 0.4rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-input[type='checkbox'] {
-  width: auto;
-  margin-right: 0.5rem;
-}
-button {
-  padding: 0.5rem 1rem;
-  background-color: #1976d2;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-button:hover {
-  background-color: #1565c0;
-}
-</style>
